@@ -221,13 +221,14 @@ var ChineseInk = function(engine) {
   ];
   // ideal to fine tune your brush!
   var PARAMETERS = {
-    squareSize  : 10
+    squareSize: 10
+    
   };
 var FLUIDMAP = [];
 var PARTICLES = [];
   
-var WIDTH = this.engine.width / 20 | 0;
-var HEIGHT = this.engine.height / 20 | 0;
+var WIDTH = this.engine.width/20 | 0;
+var HEIGHT = this.engine.height/20 | 0;
   
   /**
    * This function is called after we created your pobject
@@ -288,7 +289,7 @@ var HEIGHT = this.engine.height / 20 | 0;
       var input = engine.inputs[i];
 			if (!getInput && input.type === 'down') {
         getInput = true;
-        $('#tutorial').css({display : 'none'});
+        $('#tutorial').css({ display: 'none' });
       }
       if (input.type !== 'up') {
         if (inputsDelta[input.id]) {
@@ -332,8 +333,10 @@ var HEIGHT = this.engine.height / 20 | 0;
     for (var x = 0; x < WIDTH; ++x) {
       newFluid[x] = [];
       for (var y = 0; y < HEIGHT; ++y) {
-        var dx = FLUIDMAP[x][y].x * .8;
-        var dy = FLUIDMAP[x][y].y * .8;
+        //여기를 컨트롤하면 페인팅의 움직임이 달라짐
+        //dy값이 커지면 세로로 길게 흐르고 작아지면 좌우 곡선으로 움직임
+        var dx = FLUIDMAP[x][y].x * 0.2;
+        var dy = FLUIDMAP[x][y].y * 0.8;
 
         if (x > 0) {
           dx += FLUIDMAP[x - 1][y].x * .05;
@@ -395,9 +398,9 @@ var HEIGHT = this.engine.height / 20 | 0;
    // ctx.globalAlpha = .002;
   //  ctx.fillStyle = '#E5FCC2';
    // ctx.fillRect(0,0, this.engine.width, this.engine.height);
-    ctx.strokeStyle = '#594F4F';
+    ctx.strokeStyle = '#89c4f4';
 
-    ctx.fillStyle = '#594F4F';
+    ctx.fillStyle = '#89c4f4';
     ctx.globalAlpha = .4;
     for (var i = 0; i < PARTICLES.length; ++i) {
       var p = PARTICLES[i];
@@ -426,7 +429,7 @@ var HEIGHT = this.engine.height / 20 | 0;
     // example : we paint canvas with blue color
     this.engine.ctx.fillStyle = '#08f';
     this.engine.ctx.fillRect(0,0, this.engine.width, this.engine.height);
-  };
+  }; 
 
   /**
    * This function is called when this brush will be deleted
@@ -435,6 +438,14 @@ var HEIGHT = this.engine.height / 20 | 0;
     // Do wathever you should do here (kill timer?)
     // We will Destroy this object when we leave this function
   };
+
+
+  // var reset_custom = document.getElementById('reset_btn');
+  // reset_custom.addEventListener('click', function () {
+  //     console.log('hello');
+    
+  
+  // });
 
 
 };

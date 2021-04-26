@@ -15,6 +15,12 @@
 
 body {
   overflow: hidden;
+  cursor: url("cursor.png"), auto;
+}
+
+button {
+  border: none;
+  background: none;
 }
 
 #tutorial {
@@ -24,4 +30,15 @@ body {
   position: absolute;
   top: 40%;
   left: 30%;
+}
+
+#reset_btn {
+  width: 10%;
+  height: 50px;
+  background-color: rgba(238, 174, 202, 1);
+  color: #ffffcc;
+  position: absolute;
+  top: 60%;
+  left: 30%;
+  font-size: large;
 }
