@@ -15,12 +15,13 @@
 
 body {
   overflow: hidden;
-  cursor: url("cursor.png"), auto;
+  cursor: url("mini_mini_heart.png"), auto;
 }
 
 button {
   border: none;
   background: none;
+  cursor: url("mini_mini_heart.png"), auto;
 }
 
 #tutorial {
